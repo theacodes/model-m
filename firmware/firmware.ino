@@ -2,7 +2,14 @@
 /*
 This program is for the Teensy 3.5 and requires Teensyduino.
 
-Before uploading, modify the following settings in the Tools menu of the Arduino IDE:
+Before uploading:
+
+Install the Adafruit NeoPixel Library
+    In the menu, select Sketch -> Include Library -> Manage Libraries
+    Seach for Adafruit NeoPixel by Adafruit
+    Install (or upgrade to) version >= 1.3.4
+    
+Modify the following settings in the Tools menu of the Arduino IDE
 - Board: Teensy 3.5
 - USB Type: Serial + Keyboard + Mouse + Joystick
 - CPU Speed: 120Mhz
