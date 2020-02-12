@@ -8,7 +8,7 @@ Install the Adafruit NeoPixel Library
     In the menu, select Sketch -> Include Library -> Manage Libraries
     Seach for Adafruit NeoPixel by Adafruit
     Install (or upgrade to) version >= 1.3.4
-    
+
 Modify the following settings in the Tools menu of the Arduino IDE
 - Board: Teensy 3.5
 - USB Type: Serial + Keyboard + Mouse + Joystick
@@ -35,7 +35,7 @@ int keymap[rows][cols] = {
   /*3*/ {0,                       0,                       KEY_1,        KEY_2,                                   KEY_3,        KEY_4,        KEY_F10,                KEY_7,         KEY_8,                KEY_9,             KEY_0,               KEY_F11,         KEY_F12,            KEY_PAGE_DOWN,    KEY_END,          KEY_PRINTSCREEN},
   /*4*/ {0,                       0,                       KEY_Q,        KEY_W,                                   KEY_E,        KEY_R,        0,                      KEY_U,         KEY_I,                KEY_O,             KEY_P,               KEYPAD_7,        KEYPAD_8,           KEYPAD_9,         KEYPAD_PLUS,      MODIFIERKEY_LEFT_SHIFT},
   /*5*/ {0,                       0,                       KEY_A,        KEY_S,                                   KEY_D,        KEY_F,        KEY_BACKSLASH,          KEY_J,         KEY_K,                KEY_L,             KEY_SEMICOLON,       KEYPAD_1,        KEYPAD_2,           KEYPAD_3,         KEYPAD_ENTER,     0},
-  /*6*/ {MODIFIERKEY_RIGHT_CTRL,  MODIFIERKEY_RIGHT_SHIFT, KEY_Z,        KEY_X,                                   KEY_C,        KEY_V,        KEY_ENTER,              KEY_M,         KEY_COMMA,            KEY_PERIOD,        0,                   KEY_NUM_LOCK,    KEYPAD_SLASH,       KEYPAD_MINUS,     KEY_PAUSE,        0},               
+  /*6*/ {MODIFIERKEY_RIGHT_CTRL,  MODIFIERKEY_RIGHT_SHIFT, KEY_Z,        KEY_X,                                   KEY_C,        KEY_V,        KEY_ENTER,              KEY_M,         KEY_COMMA,            KEY_PERIOD,        0,                   KEY_NUM_LOCK,    KEYPAD_SLASH,       KEYPAD_MINUS,     KEY_PAUSE,        0},
   /*7*/ {0,                       0,                       0,            0,                                       0,            KEY_B,        KEY_SPACE,              KEY_N,         0,                    0,                 KEY_SLASH,           KEY_DOWN,        KEY_RIGHT,          KEYPAD_ASTERIX,   KEY_LEFT,         MODIFIERKEY_RIGHT_ALT}
 };
 
@@ -94,7 +94,7 @@ void loop() {
     auto strobe_pin = strobe_pins_start + row;
     digitalWrite(strobe_pin, HIGH);
     delayMicroseconds(settle_time);
-  
+
     for(int col = 0; col < cols; col++) {
       auto now = millis();
       auto& state = keystate[row][col];
@@ -114,14 +114,14 @@ void loop() {
           // Uncomment this line to debug matrix locations over the Arduino serial monitor.
           //Serial.printf("Matrix location %i, %i\n", row, col);
           if(keycode == KEY_NUM_LOCK) numlock = !numlock;
-          
+
           Keyboard.press(keycode);
 
         // key released
         } else if(state.pressed == true && !pressed) {
           Keyboard.release(keycode);
         }
-        
+
         state.pressed = pressed;
         state.last_change = now;
       }
